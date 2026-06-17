@@ -311,7 +311,7 @@ td{padding:8px 12px;vertical-align:middle}
 // ══════════════════════════════════════════════
 // CONFIG — แก้ URL ตรงนี้
 // ══════════════════════════════════════════════
-const API = 'https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec';
+const API = 'https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec';
 
 const STATUS_LIST=[
   {label:'ยังไม่ยื่น',             short:'ยังไม่ยื่น',    cls:'b-s0',pct:0  },
@@ -354,7 +354,7 @@ async function doLogin(){
 
   try{
     let ok=false;
-    if(API==='https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec'){
+    if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){
       // Demo mode: รหัสผ่านตัวอย่าง "admin1234"
       await new Promise(r=>setTimeout(r,700));
       ok=(pw==='admin1234');
@@ -416,7 +416,7 @@ async function loadData(){
   document.getElementById('main').innerHTML=`<div class="state-box"><div class="spinner2"></div><div>กำลังโหลดข้อมูล…</div></div>`;
   try{
     let raw;
-    if(API==='https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec'){await new Promise(r=>setTimeout(r,500));raw=getMockData();}
+    if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){await new Promise(r=>setTimeout(r,500));raw=getMockData();}
     else{const res=await fetch(API+'?action=getAll');if(!res.ok)throw new Error('HTTP '+res.status);raw=await res.json();}
     _rows=raw.map(r=>({...r,statusNum:parseInt(r.status)||0,startDateObj:parseDate(r.startDate),deadlineObj:parseDate(r.deadline),jobsArr:r.jobs?r.jobs.split(',').map(j=>j.trim()).filter(Boolean):[]}));
     renderAll();
@@ -638,7 +638,7 @@ async function saveRow(){
   const name=document.getElementById('f-name').value.trim();if(!name){alert('กรุณากรอกชื่อ อปท.');return;}
   const jobsArr=getJobsFromForm();
   const payload={id:_editId||String(Date.now()),name,type:document.getElementById('f-type').value,province:document.getElementById('f-province').value.trim(),status:document.getElementById('f-status').value,startDate:document.getElementById('f-start').value,deadline:document.getElementById('f-deadline').value,jobs:jobsArr.join(','),note:document.getElementById('f-note').value.trim()};
-  if(API==='https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec'){
+  if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){
     const e={...payload,statusNum:parseInt(payload.status)||0,startDateObj:parseDate(payload.startDate),deadlineObj:parseDate(payload.deadline),jobsArr};
     if(_editId){const idx=_rows.findIndex(r=>r.id===_editId);if(idx>=0)_rows[idx]=e;}else _rows.push(e);
     closeModal();renderAll();return;
@@ -657,7 +657,7 @@ function askDelete(id,name){_deleteId=id;document.getElementById('confirm-msg').
 function closeConfirm(){document.getElementById('confirm-overlay').classList.remove('open');_deleteId=null;}
 async function confirmDelete(){
   if(!_deleteId)return;
-  if(API==='https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec'){_rows=_rows.filter(r=>r.id!==_deleteId);closeConfirm();renderAll();return;}
+  if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){_rows=_rows.filter(r=>r.id!==_deleteId);closeConfirm();renderAll();return;}
   try{
     const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',id:_deleteId})});
     const json=await res.json();if(!json.success)throw new Error(json.error);
