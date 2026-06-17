@@ -370,7 +370,7 @@ async function loadData() {
   document.getElementById('main').innerHTML = `<div class="state-box"><div class="spinner"></div><div>กำลังโหลดข้อมูล…</div></div>`;
   try {
     let raw;
-    if (API === 'YOUR_APPS_SCRIPT_URL_HERE') {
+    if (API === 'https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec') {
       await new Promise(r => setTimeout(r,600));
       raw = getMockData();
     } else {
@@ -782,7 +782,7 @@ async function saveRow() {
     note:      document.getElementById('f-note').value.trim(),
   };
 
-  if (API === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (API === 'https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec') {
     const enriched = {...payload, statusNum:parseInt(payload.status)||0,
       startDateObj:parseDate(payload.startDate), deadlineObj:parseDate(payload.deadline),
       jobsArr};
@@ -814,7 +814,7 @@ function closeConfirm(){ document.getElementById('confirm-overlay').classList.re
 
 async function confirmDelete(){
   if(!_deleteId)return;
-  if(API==='YOUR_APPS_SCRIPT_URL_HERE'){
+  if(API==='https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec'){
     _rows=_rows.filter(r=>r.id!==_deleteId);
     closeConfirm(); renderAll(); return;
   }
