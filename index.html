@@ -146,7 +146,7 @@ td{padding:8px 12px;vertical-align:middle}
 </div>
 
 <script>
-const API = 'https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec';
+const API = 'https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec';
 
 const STATUS_LIST = [
   {label:'ยังไม่ยื่น',             short:'ยังไม่ยื่น',    cls:'b-s0',pct:0  },
@@ -184,7 +184,7 @@ async function loadData(){
   document.getElementById('main').innerHTML=`<div class="state-box"><div class="spinner"></div><div>กำลังโหลดข้อมูล…</div></div>`;
   try{
     let raw;
-    if(API==='https://script.google.com/macros/s/AKfycbxnkFZaT4S6KKIFhbY56H5FCcpAYsniop2yj2HhlTt1vA5mLdEgNj7uV5k-B0sHNLNP/exec'){await new Promise(r=>setTimeout(r,500));raw=getMockData();}
+    if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){await new Promise(r=>setTimeout(r,500));raw=getMockData();}
     else{const res=await fetch(API+'?action=getAll');if(!res.ok)throw new Error('HTTP '+res.status);raw=await res.json();}
     _rows=raw.map(r=>({...r,statusNum:parseInt(r.status)||0,startDateObj:parseDate(r.startDate),deadlineObj:parseDate(r.deadline),jobsArr:r.jobs?r.jobs.split(',').map(j=>j.trim()).filter(Boolean):[]}));
     renderAll();
