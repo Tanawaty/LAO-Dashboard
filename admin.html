@@ -16,53 +16,54 @@
 }
 body{font-family:'Sarabun',sans-serif;background:#eef1f6;color:var(--text);font-size:14px;line-height:1.6;min-height:100vh}
 
-/* ── Login Screen ── */
-#login-screen{position:fixed;inset:0;background:linear-gradient(135deg,var(--navy) 0%,#0f1e32 100%);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px}
-.login-card{background:var(--white);border-radius:16px;padding:36px 40px;width:100%;max-width:380px;text-align:center;animation:slideUp .3s ease;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-@keyframes slideUp{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
-.login-logo{width:64px;height:64px;background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:16px;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:28px}
-.login-title{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:4px}
-.login-sub{font-size:12px;color:var(--text-3);margin-bottom:24px}
-.login-field{text-align:left;margin-bottom:16px}
-.login-label{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:6px}
-.login-input{width:100%;font-family:inherit;font-size:14px;border:1.5px solid var(--border);border-radius:var(--radius);padding:10px 14px;color:var(--text);outline:none;transition:border-color .15s;background:var(--white)}
-.login-input:focus{border-color:var(--blue)}
-.login-btn{width:100%;font-family:inherit;font-size:14px;font-weight:600;background:linear-gradient(135deg,var(--navy),var(--blue));color:white;border:none;border-radius:var(--radius);padding:12px;cursor:pointer;transition:opacity .2s;margin-top:4px}
-.login-btn:hover{opacity:.9}
-.login-btn:disabled{opacity:.6;cursor:not-allowed}
-.login-err{font-size:12px;color:var(--red);background:var(--red-lt);border:1px solid #f5b3b3;border-radius:6px;padding:8px 12px;margin-top:12px;display:none}
-.login-err.show{display:block}
-.login-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
+/* ── Login ── */
+#login-screen{position:fixed;inset:0;background:linear-gradient(135deg,var(--navy) 0%,#0d1a2b 100%);display:flex;align-items:center;justify-content:center;z-index:999;padding:20px}
+.lcard{background:var(--white);border-radius:16px;padding:36px 40px;width:100%;max-width:380px;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.45);animation:su .3s ease}
+@keyframes su{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.llogo{width:64px;height:64px;background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:16px;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:28px}
+.ltitle{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.lsub{font-size:12px;color:var(--text-3);margin-bottom:24px}
+.lfield{text-align:left;margin-bottom:16px}
+.llabel{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:6px}
+.linput{width:100%;font-family:inherit;font-size:14px;border:1.5px solid var(--border);border-radius:var(--radius);padding:10px 14px;color:var(--text);outline:none;transition:border-color .15s}
+.linput:focus{border-color:var(--blue)}
+.lbtn{width:100%;font-family:inherit;font-size:14px;font-weight:600;background:linear-gradient(135deg,var(--navy),var(--blue));color:white;border:none;border-radius:var(--radius);padding:12px;cursor:pointer;margin-top:4px;transition:opacity .2s}
+.lbtn:hover{opacity:.9}
+.lbtn:disabled{opacity:.6;cursor:not-allowed}
+.lerr{font-size:12px;color:var(--red);background:var(--red-lt);border:1px solid #f5b3b3;border-radius:6px;padding:8px 12px;margin-top:12px;display:none}
+.lerr.show{display:block}
+.lspin{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.login-link{font-size:12px;color:var(--text-3);margin-top:20px}
-.login-link a{color:var(--blue);text-decoration:none}
-.login-link a:hover{text-decoration:underline}
+.llink{font-size:12px;color:var(--text-3);margin-top:20px}
+.llink a{color:var(--blue);text-decoration:none}
+.llink a:hover{text-decoration:underline}
 
-/* ── App (hidden until login) ── */
+/* ── App ── */
 #app{display:none}
 .header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:white;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .header h1{font-size:18px;font-weight:600}
 .header p{font-size:12px;opacity:.65;margin-top:2px}
 .hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:12px;color:rgba(255,255,255,.9)}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:12px}
 .admin-badge{background:rgba(255,193,7,.2);border:1px solid rgba(255,193,7,.4);border-radius:20px;padding:3px 12px;font-size:11px;color:#ffd54f;font-weight:600}
-.btn{font-family:inherit;font-size:12px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:6px 14px;transition:all .2s;border:none}
+.btn{font-family:inherit;font-size:12px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border:none;transition:all .2s}
 .btn-ghost{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:white}
 .btn-ghost:hover{background:rgba(255,255,255,.25)}
-.btn-primary{background:var(--blue);border:1px solid var(--blue);color:white}
+.btn-primary{background:var(--blue);color:white}
 .btn-primary:hover{background:#245d99}
-.btn-success{background:var(--teal);border:1px solid var(--teal);color:white}
+.btn-success{background:var(--teal);color:white}
 .btn-success:hover{background:#167a64}
-.btn-danger{background:var(--red);border:1px solid var(--red);color:white}
+.btn-danger{background:var(--red);color:white}
 .btn-danger:hover{background:#9e2828}
-.btn-logout{background:rgba(184,50,50,.25);border:1px solid rgba(184,50,50,.4);color:#ff8a8a}
-.btn-logout:hover{background:rgba(184,50,50,.4)}
+.btn-logout{background:rgba(184,50,50,.2);border:1px solid rgba(184,50,50,.35);color:#ff8a8a}
+.btn-logout:hover{background:rgba(184,50,50,.35)}
 .btn-sm{padding:4px 10px;font-size:11px}
 .btn-cancel{background:var(--white);border:1.5px solid var(--border);color:var(--text-2);font-family:inherit;font-size:13px;border-radius:var(--radius);padding:7px 16px;cursor:pointer}
 .btn-cancel:hover{border-color:var(--text-3)}
 .main{padding:20px 24px;max-width:1500px;margin:0 auto}
-.state-box{text-align:center;padding:60px 20px;color:var(--text-2);font-size:14px}
-.spinner2{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px}
+.state-box{text-align:center;padding:60px 20px;color:var(--text-2)}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px}
+/* metrics */
 .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:20px}
 .metric{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:14px 16px;position:relative;overflow:hidden}
 .metric::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:var(--radius) 0 0 var(--radius)}
@@ -71,6 +72,7 @@ body{font-family:'Sarabun',sans-serif;background:#eef1f6;color:var(--text);font-
 .m-value{font-size:28px;font-weight:600;margin-top:4px;line-height:1}
 .m-total .m-value{color:var(--navy)}.m-done .m-value{color:var(--teal)}.m-active .m-value{color:var(--blue)}.m-late .m-value{color:var(--red)}.m-none .m-value{color:var(--amber)}.m-jobs .m-value{color:var(--purple)}
 .m-sub{font-size:11px;color:var(--text-3);margin-top:4px}
+/* charts */
 .charts-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px}
 @media(max-width:960px){.charts-row{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.charts-row{grid-template-columns:1fr}}
@@ -81,117 +83,120 @@ body{font-family:'Sarabun',sans-serif;background:#eef1f6;color:var(--text);font-
 .donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:22px;font-weight:600;color:var(--navy)}
 .donut-center span{font-size:10px;font-weight:400;color:var(--text-3)}
 .bar-chart{display:flex;flex-direction:column;gap:7px}
-.bar-row{display:flex;align-items:center;gap:8px;font-size:11px}
+.bar-row{display:flex;align-items:center;gap:8px}
 .bar-label{width:20px;color:var(--text-3);text-align:right;flex-shrink:0;font-size:10px}
 .bar-outer{flex:1;height:14px;background:#eef1f6;border-radius:4px;overflow:hidden}
-.bar-inner{height:100%;border-radius:4px;transition:width .5s ease}
+.bar-inner{height:100%;border-radius:4px;transition:width .5s}
 .bar-count{font-size:11px;color:var(--text-3);flex-shrink:0;min-width:18px;text-align:right}
-.legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:4px}
 .leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text-2)}
 .leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .overdue-list{display:flex;flex-direction:column;gap:5px;max-height:185px;overflow-y:auto}
 .overdue-item{display:flex;align-items:center;justify-content:space-between;padding:5px 8px;border-radius:6px;border:1px solid}
 .no-overdue{text-align:center;padding:22px;color:var(--teal);font-size:12px}
-.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.section-header h2{font-size:13px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.5px}
+/* table section */
+.sec-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sec-header h2{font-size:13px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.5px}
 .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 .toolbar select,.toolbar input[type=text]{font-family:inherit;font-size:13px;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);color:var(--text);padding:6px 10px;height:34px;outline:none;transition:border-color .15s}
 .toolbar select:focus,.toolbar input:focus{border-color:var(--blue)}
 .toolbar input[type=text]{width:220px}
 .result-count{font-size:12px;color:var(--text-3);margin-left:auto}
-.table-wrap{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow-x:auto;margin-bottom:8px}
+.table-wrap{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
-thead th{background:#f0f3f8;color:var(--text-2);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:10px 12px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--border);user-select:none}
-thead th.sortable{cursor:pointer}
-thead th.sortable:hover{background:#e4e9f2;color:var(--navy)}
-thead th .sort-icon{display:inline-block;margin-left:4px;opacity:.35;font-size:10px}
-thead th.sort-asc .sort-icon,thead th.sort-desc .sort-icon{opacity:1;color:var(--blue)}
+thead th{background:#f0f3f8;color:var(--text-2);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:10px 12px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
+thead th:hover{background:#e4e9f2}
+.sort-icon{display:inline-block;margin-left:4px;opacity:.35;font-size:10px}
+.sort-asc .sort-icon,.sort-desc .sort-icon{opacity:1;color:var(--blue)}
 tbody tr{border-bottom:1px solid #f0f3f8;transition:background .1s}
 tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:#f0f6ff}
 td{padding:8px 12px;vertical-align:middle}
-.td-name{font-size:12px;font-weight:500;color:var(--text);min-width:150px}
-.td-meta{font-size:11px;color:var(--text-3)}
+.td-name{font-size:12px;font-weight:500;min-width:150px}
+.td-sm{font-size:11px;color:var(--text-3)}
 .td-date{font-size:12px;color:var(--text-2);white-space:nowrap}
 .td-days{font-size:12px;white-space:nowrap;text-align:center;font-weight:500}
 .days-ok{color:var(--teal)}.days-warn{color:var(--amber)}.days-late{color:var(--red)}.days-done{color:var(--text-3)}
-.jobs-cell{display:flex;flex-direction:column;gap:3px;min-width:140px;max-width:220px}
-.jobs-count{font-size:11px;font-weight:600;color:var(--purple)}
+.jobs-cell{display:flex;flex-direction:column;gap:3px;min-width:130px;max-width:200px}
+.jobs-n{font-size:11px;font-weight:600;color:var(--purple)}
 .jobs-tags{display:flex;flex-wrap:wrap;gap:3px}
 .job-tag{font-size:10px;background:var(--purple-lt);color:var(--purple);padding:1px 7px;border-radius:12px;white-space:nowrap}
-.jobs-empty{font-size:11px;color:var(--text-3)}
-.jobs-detail-btn{background:none;border:none;cursor:pointer;color:var(--purple);font-size:11px;text-decoration:underline;padding:0;font-family:inherit}
-.badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.jobs-more{background:none;border:none;cursor:pointer;color:var(--purple);font-size:11px;text-decoration:underline;padding:0;font-family:inherit}
+.jobs-none{font-size:11px;color:var(--text-3)}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;white-space:nowrap}
 .b-s0{background:#eff1f5;color:var(--text-3)}.b-s1{background:var(--amber-lt);color:var(--amber)}.b-s2{background:var(--purple-lt);color:var(--purple)}.b-s3{background:var(--blue-lt);color:#1a5a9a}.b-s4{background:#e0f0ff;color:#1a6a9a}.b-s5{background:#d8eeff;color:#175d8a}.b-s6{background:#cce8ff;color:#154d7a}.b-s7{background:#e8d6ff;color:#3d2880}.b-s8{background:var(--teal-lt);color:var(--teal)}
 .prog-wrap{min-width:90px}
 .prog-pct{font-size:10px;color:var(--text-3);margin-bottom:3px}
 .prog-bar{height:6px;background:#e4e9f0;border-radius:3px;overflow:hidden}
-.prog-inner{height:100%;border-radius:3px;transition:width .4s}
-.p-done{background:var(--teal)}.p-active{background:var(--blue)}.p-warn{background:var(--amber)}.p-late{background:var(--red)}.p-none{background:#ccc}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;display:none;animation:fadeIn .2s}
+.prog-fill{height:100%;border-radius:3px;transition:width .4s}
+.pf-done{background:var(--teal)}.pf-active{background:var(--blue)}.pf-warn{background:var(--amber)}.pf-late{background:var(--red)}.pf-none{background:#ccc}
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;display:none}
 .overlay.open{display:flex;align-items:flex-start;justify-content:center;padding:30px 16px;overflow-y:auto}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{background:var(--white);border-radius:12px;width:100%;max-width:620px;overflow:hidden;animation:slideUp .25s ease}
-.modal-sm{max-width:420px}
-.modal-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:white;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
-.modal-header h2{font-size:15px;font-weight:600}
-.modal-close{background:none;border:none;color:white;font-size:20px;cursor:pointer;opacity:.7;line-height:1;padding:2px 6px}
-.modal-close:hover{opacity:1}
+.modal{background:var(--white);border-radius:12px;width:100%;max-width:620px;overflow:hidden;animation:su .25s ease}
+.modal-sm{max-width:440px}
+.modal-hdr{background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:white;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.modal-hdr h2{font-size:15px;font-weight:600}
+.modal-x{background:none;border:none;color:white;font-size:20px;cursor:pointer;opacity:.7;padding:0 4px}
+.modal-x:hover{opacity:1}
 .modal-body{padding:20px}
+.modal-foot{padding:14px 20px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px;background:#fafbfd}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-group{display:flex;flex-direction:column;gap:5px}
-.form-group.full{grid-column:1/-1}
-.form-label{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.4px}
-.form-input,.form-select,.form-textarea{font-family:inherit;font-size:13px;border:1.5px solid var(--border);border-radius:var(--radius);padding:8px 10px;color:var(--text);outline:none;transition:border-color .15s;background:var(--white)}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--blue)}
-.form-textarea{resize:vertical;min-height:56px}
-.modal-footer{padding:14px 20px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px;background:#fafbfd}
-.jobs-section{grid-column:1/-1;border:1.5px solid var(--border);border-radius:var(--radius);padding:12px 14px;background:#fafbfd}
-.jobs-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.jobs-section-title{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.4px}
-.jobs-input-list{display:flex;flex-direction:column;gap:7px}
-.job-input-row{display:flex;align-items:center;gap:8px}
-.job-input-row input{flex:1;font-family:inherit;font-size:13px;border:1.5px solid var(--border);border-radius:var(--radius);padding:6px 10px;color:var(--text);outline:none;transition:border-color .15s;background:var(--white)}
-.job-input-row input:focus{border-color:var(--blue)}
-.job-num{font-size:11px;color:var(--text-3);min-width:18px;text-align:center;font-weight:600}
-.btn-remove-job{background:none;border:none;color:var(--text-3);cursor:pointer;font-size:16px;line-height:1;padding:2px 4px;border-radius:4px;transition:color .15s}
-.btn-remove-job:hover{color:var(--red)}
-.jobs-count-badge{font-size:11px;background:var(--purple-lt);color:var(--purple);padding:2px 8px;border-radius:12px;font-weight:600}
-.confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:none;align-items:center;justify-content:center}
-.confirm-overlay.open{display:flex}
-.confirm-box{background:var(--white);border-radius:10px;padding:24px;max-width:340px;text-align:center;animation:slideUp .2s ease}
-.confirm-icon{font-size:36px;margin-bottom:10px}
-.confirm-title{font-size:15px;font-weight:600;margin-bottom:6px}
-.confirm-msg{font-size:12px;color:var(--text-2);margin-bottom:18px}
-.confirm-btns{display:flex;gap:10px;justify-content:center}
-.footer{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:rgba(255,255,255,.55);font-size:12px;padding:18px 28px;margin-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg.full{grid-column:1/-1}
+.flabel{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.4px}
+.finput,.fselect,.ftextarea{font-family:inherit;font-size:13px;border:1.5px solid var(--border);border-radius:var(--radius);padding:8px 10px;color:var(--text);outline:none;transition:border-color .15s;background:var(--white)}
+.finput:focus,.fselect:focus,.ftextarea:focus{border-color:var(--blue)}
+.ftextarea{resize:vertical;min-height:56px}
+/* jobs section */
+.jobs-sec{grid-column:1/-1;border:1.5px solid var(--border);border-radius:var(--radius);padding:12px 14px;background:#fafbfd}
+.jobs-sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.jobs-sec-title{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.4px}
+.jobs-badge{font-size:11px;background:var(--purple-lt);color:var(--purple);padding:2px 8px;border-radius:12px;font-weight:600}
+.job-rows{display:flex;flex-direction:column;gap:7px}
+.job-row{display:flex;align-items:center;gap:8px}
+.job-row input{flex:1;font-family:inherit;font-size:13px;border:1.5px solid var(--border);border-radius:var(--radius);padding:6px 10px;outline:none;transition:border-color .15s;background:var(--white)}
+.job-row input:focus{border-color:var(--blue)}
+.job-n{font-size:11px;color:var(--text-3);min-width:18px;text-align:center;font-weight:600}
+.job-rm{background:none;border:none;color:var(--text-3);cursor:pointer;font-size:16px;padding:2px 4px;border-radius:4px;transition:color .15s}
+.job-rm:hover{color:var(--red)}
+/* confirm */
+.cov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:none;align-items:center;justify-content:center}
+.cov.open{display:flex}
+.cbox{background:var(--white);border-radius:10px;padding:24px;max-width:340px;text-align:center;animation:su .2s ease}
+.cicon{font-size:36px;margin-bottom:10px}
+.ctitle{font-size:15px;font-weight:600;margin-bottom:6px}
+.cmsg{font-size:12px;color:var(--text-2);margin-bottom:18px}
+.cbtns{display:flex;gap:10px;justify-content:center}
+/* footer */
+.footer{background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:rgba(255,255,255,.55);font-size:12px;padding:18px 28px;margin-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .footer-dev{color:rgba(255,255,255,.8);font-weight:500}
 </style>
 </head>
 <body>
 
-<!-- ══ LOGIN SCREEN ══ -->
+<!-- LOGIN -->
 <div id="login-screen">
-  <div class="login-card">
-    <div class="login-logo">🔐</div>
-    <div class="login-title">ระบบจัดการข้อมูล</div>
-    <div class="login-sub">ติดตามผลการประเมิน อปท. · เฉพาะผู้ดูแลระบบ</div>
-    <div class="login-field">
-      <label class="login-label">รหัสผ่าน</label>
-      <input type="password" class="login-input" id="pw-input" placeholder="กรอกรหัสผ่าน" onkeydown="if(event.key==='Enter')doLogin()">
+  <div class="lcard">
+    <div class="llogo">🔐</div>
+    <div class="ltitle">ระบบจัดการข้อมูล</div>
+    <div class="lsub">ติดตามผลการประเมิน อปท. · เฉพาะผู้ดูแลระบบ</div>
+    <div class="lfield">
+      <label class="llabel">รหัสผ่าน</label>
+      <input type="password" class="linput" id="pw" placeholder="กรอกรหัสผ่าน" onkeydown="if(event.key==='Enter')login()">
     </div>
-    <button class="login-btn" id="login-btn" onclick="doLogin()">เข้าสู่ระบบ</button>
-    <div class="login-err" id="login-err"></div>
-    <div class="login-link">กลับหน้าหลัก: <a href="index.html">index.html</a></div>
+    <button class="lbtn" id="lbtn" onclick="login()">เข้าสู่ระบบ</button>
+    <div class="lerr" id="lerr"></div>
+    <div class="llink">กลับหน้าหลัก: <a href="index.html">index.html</a></div>
   </div>
 </div>
 
-<!-- ══ APP ══ -->
+<!-- APP -->
 <div id="app">
   <div class="header">
     <div>
       <h1>⚙️ จัดการข้อมูล อปท.</h1>
-      <p>ดึงข้อมูลจาก Google Sheets · แก้ไขได้ทั้งหมด · ระบบจัดการการประเมินองค์กรปกครองส่วนท้องถิ่น</p>
+      <p>ดึงข้อมูลจาก Google Sheets · แก้ไขได้ทั้งหมด</p>
     </div>
     <div class="hdr-right">
       <span class="admin-badge">🛡 Admin</span>
@@ -200,182 +205,113 @@ td{padding:8px 12px;vertical-align:middle}
       <button class="btn btn-logout" onclick="logout()">ออกจากระบบ</button>
     </div>
   </div>
-
   <div class="main" id="main">
-    <div class="state-box"><div class="spinner2"></div><div>กำลังโหลดข้อมูล…</div></div>
+    <div class="state-box"><div class="spinner"></div><div>กำลังโหลดข้อมูล…</div></div>
   </div>
-
   <div class="footer" id="footer">
-    <span>© 2569 — ระบบติดตามผลการประเมิน อปท. · Admin Panel</span>
+    <span>© 2569 ระบบติดตามผลการประเมิน อปท. · Admin Panel</span>
     <span class="footer-dev">⚙ พัฒนาโดย Tanawat Yodburee</span>
   </div>
 </div>
 
-<!-- ══ EDIT MODAL ══ -->
-<div class="overlay" id="edit-overlay" onclick="closeModalOnBg(event)">
+<!-- EDIT MODAL -->
+<div class="overlay" id="eov" onclick="closeModalBg(event)">
   <div class="modal">
-    <div class="modal-header">
-      <h2 id="modal-title">เพิ่ม อปท. ใหม่</h2>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
+    <div class="modal-hdr"><h2 id="modal-title">เพิ่ม อปท.</h2><button class="modal-x" onclick="closeModal()">✕</button></div>
     <div class="modal-body">
       <div class="form-grid">
-        <div class="form-group full">
-          <label class="form-label">ชื่อ อปท. *</label>
-          <input type="text" class="form-input" id="f-name" placeholder="เช่น ทต.ท่าทอง">
-        </div>
-        <div class="form-group">
-          <label class="form-label">ประเภท อปท.</label>
-          <select class="form-select" id="f-type">
-            <option>อบต.</option><option>ทต.</option><option>ทน.</option><option>อบจ.</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">จังหวัด</label>
-          <input type="text" class="form-input" id="f-province" placeholder="เช่น พิษณุโลก">
-        </div>
-        <div class="form-group">
-          <label class="form-label">สถานะการดำเนินงาน</label>
-          <select class="form-select" id="f-status">
-            <option value="0">0. ยังไม่ยื่น</option>
-            <option value="1">1. ตอบรับและเสนอราคา</option>
-            <option value="2">2. อปท. จัดทำใบสั่งจ้าง</option>
-            <option value="3">3. สั่งจ้างและขออนุมัติโครงการ</option>
-            <option value="4">4. เข้าระบบและจัดทำรายงาน</option>
-            <option value="5">5. อปท. ตรวจสอบความถูกต้อง</option>
-            <option value="6">6. จัดทำเล่มรายงาน</option>
-            <option value="7">7. เสนอผู้บริหารลงนามและจัดส่งรายงาน</option>
+        <div class="fg full"><label class="flabel">ชื่อ อปท. *</label><input type="text" class="finput" id="f-name" placeholder="เช่น ทต.ท่าทอง"></div>
+        <div class="fg"><label class="flabel">ประเภท</label><select class="fselect" id="f-type"><option>อบต.</option><option>ทต.</option><option>ทน.</option><option>อบจ.</option></select></div>
+        <div class="fg"><label class="flabel">จังหวัด</label><input type="text" class="finput" id="f-province" placeholder="เช่น พิษณุโลก"></div>
+        <div class="fg"><label class="flabel">สถานะ</label>
+          <select class="fselect" id="f-status">
+            <option value="0">0. ยังไม่ยื่น</option><option value="1">1. ตอบรับและเสนอราคา</option>
+            <option value="2">2. อปท. จัดทำใบสั่งจ้าง</option><option value="3">3. สั่งจ้างและขออนุมัติโครงการ</option>
+            <option value="4">4. เข้าระบบและจัดทำรายงาน</option><option value="5">5. อปท. ตรวจสอบความถูกต้อง</option>
+            <option value="6">6. จัดทำเล่มรายงาน</option><option value="7">7. เสนอผู้บริหารลงนามและจัดส่งรายงาน</option>
             <option value="8">8. เงินเข้ามหาวิทยาลัย (เสร็จสิ้น)</option>
           </select>
         </div>
-        <div class="form-group">
-          <label class="form-label">วันที่เริ่มดำเนินงาน</label>
-          <input type="date" class="form-input" id="f-start">
-        </div>
-        <div class="form-group">
-          <label class="form-label">กำหนดแล้วเสร็จ</label>
-          <input type="date" class="form-input" id="f-deadline">
-        </div>
-        <div class="form-group full">
-          <div class="jobs-section">
-            <div class="jobs-section-header">
+        <div class="fg"><label class="flabel">วันที่เริ่มดำเนินงาน</label><input type="date" class="finput" id="f-start"></div>
+        <div class="fg"><label class="flabel">กำหนดแล้วเสร็จ</label><input type="date" class="finput" id="f-deadline"></div>
+        <div class="fg full">
+          <div class="jobs-sec">
+            <div class="jobs-sec-hdr">
               <div style="display:flex;align-items:center;gap:8px">
-                <span class="jobs-section-title">📋 งานที่ขอรับการประเมิน</span>
-                <span class="jobs-count-badge" id="jobs-count-badge">0 งาน</span>
+                <span class="jobs-sec-title">📋 งานที่ขอรับการประเมิน</span>
+                <span class="jobs-badge" id="jbadge">0 งาน</span>
               </div>
-              <button class="btn btn-primary btn-sm" onclick="addJobInput()" type="button">+ เพิ่มงาน</button>
+              <button class="btn btn-primary btn-sm" onclick="addJob()" type="button">+ เพิ่มงาน</button>
             </div>
-            <div class="jobs-input-list" id="jobs-input-list">
-              <div id="jobs-empty-msg" style="font-size:12px;color:var(--text-3);text-align:center;padding:8px 0">กดปุ่ม + เพิ่มงาน เพื่อระบุรายชื่องาน</div>
+            <div class="job-rows" id="job-rows">
+              <div id="job-empty" style="font-size:12px;color:var(--text-3);text-align:center;padding:8px 0">กดปุ่ม + เพิ่มงาน เพื่อระบุรายชื่องาน</div>
             </div>
           </div>
         </div>
-        <div class="form-group full">
-          <label class="form-label">หมายเหตุ</label>
-          <textarea class="form-textarea" id="f-note" placeholder="บันทึกเพิ่มเติม…"></textarea>
-        </div>
+        <div class="fg full"><label class="flabel">หมายเหตุ</label><textarea class="ftextarea" id="f-note" placeholder="บันทึกเพิ่มเติม…"></textarea></div>
       </div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-foot">
       <button class="btn-cancel" onclick="closeModal()">ยกเลิก</button>
       <button class="btn btn-success" onclick="saveRow()">💾 บันทึก</button>
     </div>
   </div>
 </div>
 
-<!-- ══ JOBS DETAIL MODAL ══ -->
-<div class="overlay" id="jobs-overlay" onclick="document.getElementById('jobs-overlay').classList.remove('open')">
+<!-- JOBS DETAIL -->
+<div class="overlay" id="jov" onclick="this.classList.remove('open')">
   <div class="modal modal-sm" onclick="event.stopPropagation()">
-    <div class="modal-header">
-      <h2 id="jobs-modal-title">รายการงานประเมิน</h2>
-      <button class="modal-close" onclick="document.getElementById('jobs-overlay').classList.remove('open')">✕</button>
-    </div>
-    <div class="modal-body" id="jobs-modal-body"></div>
+    <div class="modal-hdr"><h2 id="jov-title">รายการงาน</h2><button class="modal-x" onclick="document.getElementById('jov').classList.remove('open')">✕</button></div>
+    <div class="modal-body" id="jov-body"></div>
   </div>
 </div>
 
-<!-- ══ CONFIRM DELETE ══ -->
-<div class="confirm-overlay" id="confirm-overlay">
-  <div class="confirm-box">
-    <div class="confirm-icon">🗑️</div>
-    <div class="confirm-title">ลบรายการนี้?</div>
-    <div class="confirm-msg" id="confirm-msg">การดำเนินการนี้ไม่สามารถย้อนกลับได้</div>
-    <div class="confirm-btns">
-      <button class="btn-cancel" onclick="closeConfirm()">ยกเลิก</button>
-      <button class="btn btn-danger" onclick="confirmDelete()">ลบ</button>
+<!-- CONFIRM DELETE -->
+<div class="cov" id="cov">
+  <div class="cbox">
+    <div class="cicon">🗑️</div>
+    <div class="ctitle">ลบรายการนี้?</div>
+    <div class="cmsg" id="cmsg">ไม่สามารถย้อนกลับได้</div>
+    <div class="cbtns">
+      <button class="btn-cancel" onclick="closeCov()">ยกเลิก</button>
+      <button class="btn btn-danger" onclick="confirmDel()">ลบ</button>
     </div>
   </div>
 </div>
 
 <script>
-// ══════════════════════════════════════════════
-// CONFIG — แก้ URL ตรงนี้
-// ══════════════════════════════════════════════
-const API = 'https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec';
+const API = 'https://script.google.com/macros/s/AKfycbyWTltw9hOID8t-WlRz_YvgRxBipx2sbYRfJmFObTChjKmik8RPNZyHDgBWFc5W5P4/exec';
 
-const STATUS_LIST=[
-  {label:'ยังไม่ยื่น',             short:'ยังไม่ยื่น',    cls:'b-s0',pct:0  },
-  {label:'ตอบรับและเสนอราคา',      short:'เสนอราคา',      cls:'b-s1',pct:12 },
-  {label:'อปท.จัดทำใบสั่งจ้าง',   short:'ใบสั่งจ้าง',    cls:'b-s2',pct:25 },
-  {label:'สั่งจ้างและขออนุมัติ',   short:'ขออนุมัติ',     cls:'b-s3',pct:37 },
-  {label:'เข้าระบบและจัดทำรายงาน', short:'จัดทำรายงาน',  cls:'b-s4',pct:50 },
-  {label:'อปท.ตรวจสอบความถูกต้อง', short:'ตรวจสอบ',      cls:'b-s5',pct:62 },
-  {label:'จัดทำเล่มรายงาน',        short:'จัดทำเล่ม',     cls:'b-s6',pct:75 },
-  {label:'เสนอลงนามและจัดส่ง',     short:'จัดส่งรายงาน', cls:'b-s7',pct:87 },
-  {label:'เงินเข้ามหาวิทยาลัย',    short:'เสร็จสิ้น ✓',   cls:'b-s8',pct:100},
+const SL = [
+  {s:'ยังไม่ยื่น',    c:'b-s0',p:0  },{s:'เสนอราคา',     c:'b-s1',p:12 },
+  {s:'ใบสั่งจ้าง',    c:'b-s2',p:25 },{s:'ขออนุมัติ',     c:'b-s3',p:37 },
+  {s:'จัดทำรายงาน',   c:'b-s4',p:50 },{s:'ตรวจสอบ',      c:'b-s5',p:62 },
+  {s:'จัดทำเล่ม',     c:'b-s6',p:75 },{s:'จัดส่งรายงาน', c:'b-s7',p:87 },
+  {s:'เสร็จสิ้น ✓',   c:'b-s8',p:100},
 ];
-const STATUS_COLORS=['#8a96a3','#b86a00','#5b3fa6','#2e6fad','#1d7aad','#1d6aad','#1a5a9a','#24426b','#1d8a74'];
+const SC=['#8a96a3','#b86a00','#5b3fa6','#2e6fad','#1d7aad','#1d6aad','#1a5a9a','#24426b','#1d8a74'];
 const TODAY=new Date(); TODAY.setHours(0,0,0,0);
-const fmtDate=d=>(!d||isNaN(d))?'—':d.toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'2-digit'});
-const parseDate=s=>{if(!s||!s.trim())return null;const d=new Date(s.trim());return isNaN(d)?null:d;};
-const daysDiff=(a,b)=>Math.round((b-a)/86400000);
+const fd=d=>(!d||isNaN(d))?'—':d.toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'2-digit'});
+const pd=s=>{if(!s||!String(s).trim())return null;const d=new Date(String(s).trim());return isNaN(d)?null:d;};
+const dd=(a,b)=>Math.round((b-a)/86400000);
 
-let _rows=[],_editId=null,_deleteId=null,_sortCol=null,_sortDir=1,_jobInputCount=0;
+let rows=[],eid=null,did=null,sc=null,sd=1;
 
-// ══════════════════════════════════════════════
-// LOGIN
-// ══════════════════════════════════════════════
-// Session key เก็บใน sessionStorage (หายเมื่อปิด tab)
-const SESSION_KEY='abt_admin_ok';
+/* ── LOGIN ── */
+function checkSession(){if(sessionStorage.getItem('abt_ok')==='1')showApp();}
 
-function checkSession(){
-  if(sessionStorage.getItem(SESSION_KEY)==='1'){
-    showApp();
-  }
-}
-
-async function doLogin(){
-  const pw=document.getElementById('pw-input').value.trim();
+async function login(){
+  const pw=document.getElementById('pw').value.trim();
   if(!pw){showErr('กรุณากรอกรหัสผ่าน');return;}
-  const btn=document.getElementById('login-btn');
-  btn.disabled=true;
-  btn.innerHTML='<span class="login-spinner"></span>กำลังตรวจสอบ…';
-  hideErr();
-
+  const btn=document.getElementById('lbtn');
+  btn.disabled=true; btn.innerHTML='<span class="lspin"></span>กำลังตรวจสอบ…'; hideErr();
   try{
-    let ok=false;
-    if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){
-      // Demo mode: รหัสผ่านตัวอย่าง "admin1234"
-      await new Promise(r=>setTimeout(r,700));
-      ok=(pw==='admin1234');
-    } else {
-      const res=await fetch(API+'?action=checkPassword&pw='+encodeURIComponent(pw));
-      const json=await res.json();
-      ok=json.ok===true;
-    }
-    if(ok){
-      sessionStorage.setItem(SESSION_KEY,'1');
-      showApp();
-    } else {
-      showErr('รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่');
-      document.getElementById('pw-input').value='';
-      document.getElementById('pw-input').focus();
-    }
-  }catch(e){
-    showErr('เกิดข้อผิดพลาด: '+e.message);
-  }
-  btn.disabled=false;
-  btn.innerHTML='เข้าสู่ระบบ';
+    const res=await fetch(API+'?action=checkPassword&pw='+encodeURIComponent(pw));
+    const json=await res.json();
+    if(json.ok){sessionStorage.setItem('abt_ok','1');showApp();}
+    else{showErr('รหัสผ่านไม่ถูกต้อง');document.getElementById('pw').value='';document.getElementById('pw').focus();}
+  }catch(e){showErr('เชื่อมต่อไม่ได้: '+e.message);}
+  btn.disabled=false; btn.innerHTML='เข้าสู่ระบบ';
 }
 
 function showApp(){
@@ -384,105 +320,75 @@ function showApp(){
   document.getElementById('today-chip').textContent='วันนี้: '+TODAY.toLocaleDateString('th-TH',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
   loadData();
 }
+function logout(){sessionStorage.removeItem('abt_ok');location.reload();}
+function showErr(m){const e=document.getElementById('lerr');e.textContent=m;e.classList.add('show');}
+function hideErr(){document.getElementById('lerr').classList.remove('show');}
 
-function logout(){
-  sessionStorage.removeItem(SESSION_KEY);
-  location.reload();
-}
-
-function showErr(msg){const el=document.getElementById('login-err');el.textContent=msg;el.classList.add('show');}
-function hideErr(){document.getElementById('login-err').classList.remove('show');}
-
-// ══════════════════════════════════════════════
-// MOCK DATA
-// ══════════════════════════════════════════════
-function getMockData(){return[
-  {id:'1',name:'ทต.ท่าทอง',type:'ทต.',province:'พิษณุโลก',status:'8',startDate:'2025-01-15',deadline:'2025-06-30',jobs:'ด้านสาธารณสุข,ด้านการศึกษา,ด้านโครงสร้างพื้นฐาน',note:'เรียบร้อย'},
-  {id:'2',name:'อบต.วังทอง',type:'อบต.',province:'พิษณุโลก',status:'7',startDate:'2025-02-01',deadline:'2025-07-31',jobs:'ด้านสาธารณสุข,ด้านสวัสดิการสังคม',note:''},
-  {id:'3',name:'ทต.บึงพระ',type:'ทต.',province:'พิษณุโลก',status:'6',startDate:'2025-01-20',deadline:'2025-06-20',jobs:'ด้านการศึกษา',note:''},
-  {id:'4',name:'อบต.นครไทย',type:'อบต.',province:'พิษณุโลก',status:'5',startDate:'2025-03-01',deadline:'2025-08-31',jobs:'ด้านสาธารณสุข,ด้านการเกษตร,ด้านสิ่งแวดล้อม',note:'รอเอกสาร'},
-  {id:'5',name:'ทต.พรหมพิราม',type:'ทต.',province:'พิษณุโลก',status:'4',startDate:'2025-03-10',deadline:'2025-07-10',jobs:'ด้านโครงสร้างพื้นฐาน',note:''},
-  {id:'6',name:'อบต.เนินมะปราง',type:'อบต.',province:'พิษณุโลก',status:'3',startDate:'2025-04-01',deadline:'2025-08-01',jobs:'ด้านสาธารณสุข',note:''},
-  {id:'7',name:'ทต.สามง่าม',type:'ทต.',province:'พิษณุโลก',status:'2',startDate:'2025-04-15',deadline:'2025-09-15',jobs:'ด้านการศึกษา,ด้านสวัสดิการสังคม',note:''},
-  {id:'8',name:'อบต.ชาติตระการ',type:'อบต.',province:'พิษณุโลก',status:'1',startDate:'2025-05-01',deadline:'2025-09-30',jobs:'ด้านสาธารณสุข',note:''},
-  {id:'9',name:'ทน.พิษณุโลก',type:'ทน.',province:'พิษณุโลก',status:'0',startDate:'',deadline:'2025-10-31',jobs:'',note:''},
-  {id:'10',name:'อบต.วัดโบสถ์',type:'อบต.',province:'พิษณุโลก',status:'4',startDate:'2025-02-20',deadline:'2025-05-31',jobs:'ด้านสาธารณสุข,ด้านการศึกษา',note:'เกินกำหนด'},
-];}
-
-// ══════════════════════════════════════════════
-// LOAD DATA
-// ══════════════════════════════════════════════
+/* ── LOAD ── */
 async function loadData(){
-  document.getElementById('main').innerHTML=`<div class="state-box"><div class="spinner2"></div><div>กำลังโหลดข้อมูล…</div></div>`;
+  document.getElementById('main').innerHTML='<div class="state-box"><div class="spinner"></div><div>กำลังโหลดข้อมูล…</div></div>';
   try{
-    let raw;
-    if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){await new Promise(r=>setTimeout(r,500));raw=getMockData();}
-    else{const res=await fetch(API+'?action=getAll');if(!res.ok)throw new Error('HTTP '+res.status);raw=await res.json();}
-    _rows=raw.map(r=>({...r,statusNum:parseInt(r.status)||0,startDateObj:parseDate(r.startDate),deadlineObj:parseDate(r.deadline),jobsArr:r.jobs?r.jobs.split(',').map(j=>j.trim()).filter(Boolean):[]}));
-    renderAll();
+    const res=await fetch(API+'?action=getAll');
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const raw=await res.json();
+    if(raw.error)throw new Error(raw.error);
+    rows=raw.map(r=>({...r,sn:parseInt(r.status)||0,sd:pd(r.startDate),dd:pd(r.deadline),ja:r.jobs?r.jobs.split(',').map(j=>j.trim()).filter(Boolean):[]}));
+    render();
   }catch(e){
-    document.getElementById('main').innerHTML=`<div class="state-box"><div style="font-size:32px;margin-bottom:12px">⚠️</div><div style="font-weight:600">ไม่สามารถโหลดข้อมูลได้</div><div style="font-size:12px;color:#8a96a3;margin-top:6px">${e.message}</div><button class="btn btn-primary" onclick="loadData()" style="margin:16px auto 0">ลองใหม่</button></div>`;
+    document.getElementById('main').innerHTML=`<div class="state-box"><div style="font-size:32px;margin-bottom:10px">⚠️</div><div style="font-weight:600">โหลดข้อมูลไม่สำเร็จ</div><div style="font-size:12px;color:#8a96a3;margin-top:6px">${e.message}</div><button class="btn btn-primary" onclick="loadData()" style="margin:16px auto 0">ลองใหม่</button></div>`;
   }
 }
 
-// ══════════════════════════════════════════════
-// RENDER
-// ══════════════════════════════════════════════
-function renderAll(){
+/* ── RENDER ── */
+function render(){
   const m=document.getElementById('main');
   m.innerHTML='';
-  m.appendChild(buildMetrics());
-  m.appendChild(buildCharts());
+  m.appendChild(mkMetrics());
+  m.appendChild(mkCharts());
   const sec=document.createElement('div');
   sec.innerHTML=`
-    <div class="section-header">
-      <h2>รายการ อปท. ทั้งหมด</h2>
-      <button class="btn btn-primary" onclick="openAdd()">+ เพิ่ม อปท.</button>
-    </div>
+    <div class="sec-header"><h2>รายการ อปท. ทั้งหมด</h2><button class="btn btn-primary" onclick="openAdd()">+ เพิ่ม อปท.</button></div>
     <div class="toolbar">
-      <select id="f-sf" onchange="applyFilter()">
+      <select id="fsf" onchange="filter()">
         <option value="all">ทุกสถานะ</option>
-        ${STATUS_LIST.map((s,i)=>`<option value="${i}">${i}. ${s.label}</option>`).join('')}
+        ${SL.map((s,i)=>`<option value="${i}">${i}. ${s.s}</option>`).join('')}
         <option value="late">เกินกำหนด</option>
       </select>
-      <select id="f-tf" onchange="applyFilter()">
+      <select id="ftf" onchange="filter()">
         <option value="all">ทุกประเภท</option>
         <option>อบต.</option><option>ทต.</option><option>ทน.</option><option>อบจ.</option>
       </select>
-      <input type="text" id="f-q" placeholder="ค้นหาชื่อ อปท. / งาน…" oninput="applyFilter()">
-      <span class="result-count" id="result-count"></span>
+      <input type="text" id="fq" placeholder="ค้นหาชื่อ อปท. / งาน…" oninput="filter()">
+      <span class="result-count" id="rc"></span>
     </div>
     <div class="table-wrap"><table>
       <thead><tr>
-        <th class="sortable" onclick="sortBy('name')" id="th-name">ชื่อ อปท.<span class="sort-icon">⇅</span></th>
+        <th onclick="sort('name')" id="th-name">ชื่อ อปท.<span class="sort-icon">⇅</span></th>
         <th>ประเภท / จังหวัด</th>
-        <th class="sortable" onclick="sortBy('jobCount')" id="th-jobCount">งานประเมิน<span class="sort-icon">⇅</span></th>
-        <th class="sortable" onclick="sortBy('statusNum')" id="th-statusNum">สถานะ<span class="sort-icon">⇅</span></th>
-        <th style="min-width:100px">ความคืบหน้า</th>
-        <th class="sortable" onclick="sortBy('startDateObj')" id="th-startDateObj">วันเริ่ม<span class="sort-icon">⇅</span></th>
-        <th class="sortable" onclick="sortBy('deadlineObj')" id="th-deadlineObj">กำหนดเสร็จ<span class="sort-icon">⇅</span></th>
-        <th class="sortable" onclick="sortBy('daysLeft')" id="th-daysLeft">วันคงเหลือ<span class="sort-icon">⇅</span></th>
+        <th onclick="sort('jn')" id="th-jn">งานประเมิน<span class="sort-icon">⇅</span></th>
+        <th onclick="sort('sn')" id="th-sn">สถานะ<span class="sort-icon">⇅</span></th>
+        <th>ความคืบหน้า</th>
+        <th onclick="sort('sd')" id="th-sd">วันเริ่ม<span class="sort-icon">⇅</span></th>
+        <th onclick="sort('dd')" id="th-dd">กำหนดเสร็จ<span class="sort-icon">⇅</span></th>
+        <th onclick="sort('dl')" id="th-dl">วันคงเหลือ<span class="sort-icon">⇅</span></th>
         <th>หมายเหตุ</th>
         <th>จัดการ</th>
       </tr></thead>
-      <tbody id="tbody"></tbody>
+      <tbody id="tb"></tbody>
     </table></div>`;
   m.appendChild(sec);
-  applyFilter();
-  let ft=document.getElementById('footer');
-  let upd=ft.querySelector('.upd');
+  filter();
+  let ft=document.getElementById('footer'),upd=ft.querySelector('.upd');
   if(!upd){upd=document.createElement('span');upd.className='upd';ft.appendChild(upd);}
   upd.style.cssText='font-size:11px;opacity:.6';
-  upd.textContent='อัปเดต: '+new Date().toLocaleString('th-TH');
+  upd.textContent=' · อัปเดต: '+new Date().toLocaleString('th-TH');
 }
 
-function buildMetrics(){
-  const total=_rows.length,done=_rows.filter(r=>r.statusNum===8).length,
-    active=_rows.filter(r=>r.statusNum>0&&r.statusNum<8).length,
-    none=_rows.filter(r=>r.statusNum===0).length,
-    late=_rows.filter(r=>r.statusNum<8&&r.deadlineObj&&r.deadlineObj<TODAY).length,
-    totalJobs=_rows.reduce((s,r)=>s+(r.jobsArr?r.jobsArr.length:0),0),
-    pct=total?Math.round(done/total*100):0;
+function mkMetrics(){
+  const total=rows.length,done=rows.filter(r=>r.sn===8).length,
+    active=rows.filter(r=>r.sn>0&&r.sn<8).length,none=rows.filter(r=>r.sn===0).length,
+    late=rows.filter(r=>r.sn<8&&r.dd&&r.dd<TODAY).length,
+    tj=rows.reduce((s,r)=>s+r.ja.length,0),pct=total?Math.round(done/total*100):0;
   const d=document.createElement('div');d.className='metrics';
   d.innerHTML=`
     <div class="metric m-total"><div class="m-label">อปท. ทั้งหมด</div><div class="m-value">${total}</div><div class="m-sub">รายการในระบบ</div></div>
@@ -490,13 +396,13 @@ function buildMetrics(){
     <div class="metric m-active"><div class="m-label">กำลังดำเนินการ</div><div class="m-value">${active}</div><div class="m-sub">ขั้นตอน 1–7</div></div>
     <div class="metric m-none"><div class="m-label">ยังไม่ยื่น</div><div class="m-value">${none}</div><div class="m-sub">รอดำเนินการ</div></div>
     <div class="metric m-late"><div class="m-label">เกินกำหนด</div><div class="m-value">${late}</div><div class="m-sub">ต้องเร่งดำเนิน</div></div>
-    <div class="metric m-jobs"><div class="m-label">งานรวมทั้งหมด</div><div class="m-value">${totalJobs}</div><div class="m-sub">จาก ${total} อปท.</div></div>`;
+    <div class="metric m-jobs"><div class="m-label">งานรวมทั้งหมด</div><div class="m-value">${tj}</div><div class="m-sub">จาก ${total} อปท.</div></div>`;
   return d;
 }
 
-function buildCharts(){
-  const total=_rows.length||1,done=_rows.filter(r=>r.statusNum===8).length,
-    active=_rows.filter(r=>r.statusNum>0&&r.statusNum<8).length,none=_rows.filter(r=>r.statusNum===0).length,
+function mkCharts(){
+  const total=rows.length||1,done=rows.filter(r=>r.sn===8).length,
+    active=rows.filter(r=>r.sn>0&&r.sn<8).length,none=rows.filter(r=>r.sn===0).length,
     pct=Math.round(done/total*100),C=2*Math.PI*50,seg=p=>p/100*C;
   const d=document.createElement('div');d.className='charts-row';
   d.innerHTML=`
@@ -516,158 +422,151 @@ function buildCharts(){
       <div class="leg-item"><div class="leg-dot" style="background:#dde3ec"></div>ยังไม่ยื่น (${none})</div>
     </div>
   </div>
-  <div class="chart-card"><div class="chart-title">จำนวน อปท. แต่ละขั้นตอน</div><div class="bar-chart" id="step-bars"></div></div>
-  <div class="chart-card"><div class="chart-title">อปท. ที่ใกล้/เกินกำหนด</div><div id="overdue-area"></div></div>`;
+  <div class="chart-card"><div class="chart-title">จำนวน อปท. แต่ละขั้นตอน</div><div class="bar-chart" id="bars"></div></div>
+  <div class="chart-card"><div class="chart-title">อปท. ที่ใกล้/เกินกำหนด</div><div id="ov"></div></div>`;
   setTimeout(()=>{
-    const counts=STATUS_LIST.map((_,i)=>_rows.filter(r=>r.statusNum===i).length),maxC=Math.max(...counts,1);
-    document.getElementById('step-bars').innerHTML=counts.map((c,i)=>`<div class="bar-row"><div class="bar-label">${i}</div><div class="bar-outer"><div class="bar-inner" style="width:${c/maxC*100}%;background:${STATUS_COLORS[i]}"></div></div><div class="bar-count">${c}</div></div>`).join('');
-    const cutoff=new Date(TODAY.getTime()+14*86400000);
-    const warn=_rows.filter(r=>r.statusNum<8&&r.deadlineObj&&r.deadlineObj<=cutoff).sort((a,b)=>(a.deadlineObj||0)-(b.deadlineObj||0)).slice(0,6);
-    const oa=document.getElementById('overdue-area');
-    if(!warn.length){oa.innerHTML=`<div class="no-overdue">✅ ไม่มี อปท. ที่ใกล้หรือเกินกำหนด</div>`;}
-    else{oa.innerHTML=`<div class="overdue-list">${warn.map(r=>{const left=daysDiff(TODAY,r.deadlineObj),late=left<0,bg=late?'var(--red-lt)':'var(--amber-lt)',bc=late?'#f5b3b3':'#f5d28a',col=late?'var(--red)':'var(--amber)',txt=late?`เกิน ${Math.abs(left)} วัน`:`${left} วัน`;return`<div class="overdue-item" style="background:${bg};border-color:${bc}"><div style="font-size:12px;font-weight:500;color:${col}">${r.name}</div><div style="font-size:11px;color:${col}">${txt}</div></div>`;}).join('')}</div>`;}
+    const counts=SL.map((_,i)=>rows.filter(r=>r.sn===i).length),mx=Math.max(...counts,1);
+    document.getElementById('bars').innerHTML=counts.map((c,i)=>`<div class="bar-row"><div class="bar-label">${i}</div><div class="bar-outer"><div class="bar-inner" style="width:${c/mx*100}%;background:${SC[i]}"></div></div><div class="bar-count">${c}</div></div>`).join('');
+    const cut=new Date(TODAY.getTime()+14*86400000);
+    const warn=rows.filter(r=>r.sn<8&&r.dd&&r.dd<=cut).sort((a,b)=>(a.dd||0)-(b.dd||0)).slice(0,6);
+    const ov=document.getElementById('ov');
+    if(!warn.length){ov.innerHTML='<div class="no-overdue">✅ ไม่มี อปท. ที่ใกล้หรือเกินกำหนด</div>';}
+    else{ov.innerHTML=`<div class="overdue-list">${warn.map(r=>{const l=dd(TODAY,r.dd),late=l<0,col=late?'var(--red)':'var(--amber)',bg=late?'var(--red-lt)':'var(--amber-lt)',bc=late?'#f5b3b3':'#f5d28a',txt=late?`เกิน ${Math.abs(l)} วัน`:`${l} วัน`;return`<div class="overdue-item" style="background:${bg};border-color:${bc}"><div style="font-size:12px;font-weight:500;color:${col}">${r.name}</div><div style="font-size:11px;color:${col}">${txt}</div></div>`;}).join('')}</div>`;}
   },0);
   return d;
 }
 
-function applyFilter(){
-  const sf=document.getElementById('f-sf')?.value||'all',tf=document.getElementById('f-tf')?.value||'all',q=(document.getElementById('f-q')?.value||'').toLowerCase();
-  let rows=_rows.map(r=>({...r,jobCount:r.jobsArr.length,daysLeft:r.deadlineObj?daysDiff(TODAY,r.deadlineObj):null})).filter(r=>{
-    if(sf==='late'){if(r.statusNum===8||!r.deadlineObj||r.deadlineObj>=TODAY)return false;}
-    else if(sf!=='all'&&parseInt(sf)!==r.statusNum)return false;
+function filter(){
+  const sf=document.getElementById('fsf')?.value||'all',tf=document.getElementById('ftf')?.value||'all',q=(document.getElementById('fq')?.value||'').toLowerCase();
+  let data=rows.map(r=>({...r,jn:r.ja.length,dl:r.dd?dd(TODAY,r.dd):null})).filter(r=>{
+    if(sf==='late'){if(r.sn===8||!r.dd||r.dd>=TODAY)return false;}
+    else if(sf!=='all'&&parseInt(sf)!==r.sn)return false;
     if(tf!=='all'&&r.type!==tf)return false;
-    if(q&&!r.name.toLowerCase().includes(q)&&!(r.province||'').toLowerCase().includes(q)&&!r.jobsArr.some(j=>j.toLowerCase().includes(q)))return false;
+    if(q&&!r.name.toLowerCase().includes(q)&&!(r.province||'').toLowerCase().includes(q)&&!r.ja.some(j=>j.toLowerCase().includes(q)))return false;
     return true;
   });
-  if(_sortCol){rows=[...rows].sort((a,b)=>{let va=a[_sortCol],vb=b[_sortCol];if(va instanceof Date)va=va.getTime();if(vb instanceof Date)vb=vb.getTime();if(va==null)va=_sortDir>0?Infinity:-Infinity;if(vb==null)vb=_sortDir>0?Infinity:-Infinity;if(typeof va==='string')return va.localeCompare(vb,'th')*_sortDir;return(va-vb)*_sortDir;});}
-  const rc=document.getElementById('result-count');if(rc)rc.textContent=`แสดง ${rows.length} รายการ`;
-  const tbody=document.getElementById('tbody');if(!tbody)return;
-  tbody.innerHTML=rows.map(r=>{
-    const st=STATUS_LIST[r.statusNum]||STATUS_LIST[0],left=r.daysLeft,isLate=r.statusNum<8&&r.deadlineObj&&r.deadlineObj<TODAY;
-    let daysCls='days-ok',daysText='—';
-    if(r.statusNum===8){daysCls='days-done';daysText='เสร็จแล้ว';}
-    else if(left!==null){daysText=left<0?`เกิน ${Math.abs(left)} วัน`:`${left} วัน`;daysCls=left<0?'days-late':left<=14?'days-warn':'days-ok';}
-    let pCls='p-active';if(r.statusNum===8)pCls='p-done';else if(isLate)pCls='p-late';else if(left!==null&&left<=14)pCls='p-warn';else if(r.statusNum===0)pCls='p-none';
-    let jobsHtml='';
-    if(!r.jobsArr||!r.jobsArr.length)jobsHtml=`<div class="jobs-empty">— ไม่ระบุ</div>`;
-    else if(r.jobsArr.length<=2)jobsHtml=`<div class="jobs-count">${r.jobsArr.length} งาน</div><div class="jobs-tags">${r.jobsArr.map(j=>`<span class="job-tag">${j}</span>`).join('')}</div>`;
-    else jobsHtml=`<div class="jobs-count">${r.jobsArr.length} งาน</div><div class="jobs-tags">${r.jobsArr.slice(0,2).map(j=>`<span class="job-tag">${j}</span>`).join('')}<button class="jobs-detail-btn" onclick="showJobs('${r.id}')">+${r.jobsArr.length-2} เพิ่มเติม</button></div>`;
-    return`<tr><td class="td-name">${r.name}</td><td><div class="td-meta">${r.type||'—'}</div><div class="td-meta">${r.province||'—'}</div></td><td><div class="jobs-cell">${jobsHtml}</div></td><td><span class="badge ${st.cls}">${r.statusNum}. ${st.short}</span></td><td><div class="prog-wrap"><div class="prog-pct">${st.pct}%</div><div class="prog-bar"><div class="prog-inner ${pCls}" style="width:${st.pct}%"></div></div></div></td><td class="td-date">${fmtDate(r.startDateObj)}</td><td class="td-date">${fmtDate(r.deadlineObj)}</td><td class="td-days ${daysCls}">${daysText}</td><td style="font-size:11px;color:var(--text-3);max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.note||'—'}</td><td><div style="display:flex;gap:4px"><button class="btn btn-primary btn-sm" onclick="openEdit('${r.id}')">✏️</button><button class="btn btn-danger btn-sm" onclick="askDelete('${r.id}','${r.name}')">🗑</button></div></td></tr>`;
+  if(sc){data=[...data].sort((a,b)=>{let va=a[sc],vb=b[sc];if(va instanceof Date)va=va.getTime();if(vb instanceof Date)vb=vb.getTime();if(va==null)va=sd>0?Infinity:-Infinity;if(vb==null)vb=sd>0?Infinity:-Infinity;if(typeof va==='string')return va.localeCompare(vb,'th')*sd;return(va-vb)*sd;});}
+  const rc=document.getElementById('rc');if(rc)rc.textContent=`แสดง ${data.length} รายการ`;
+  const tb=document.getElementById('tb');if(!tb)return;
+  tb.innerHTML=data.map(r=>{
+    const st=SL[r.sn]||SL[0],l=r.dl,late=r.sn<8&&r.dd&&r.dd<TODAY;
+    let dc='days-ok',dt='—';
+    if(r.sn===8){dc='days-done';dt='เสร็จแล้ว';}
+    else if(l!==null){dt=l<0?`เกิน ${Math.abs(l)} วัน`:`${l} วัน`;dc=l<0?'days-late':l<=14?'days-warn':'days-ok';}
+    let pf='pf-active';if(r.sn===8)pf='pf-done';else if(late)pf='pf-late';else if(l!==null&&l<=14)pf='pf-warn';else if(r.sn===0)pf='pf-none';
+    let jh='';
+    if(!r.ja.length)jh='<div class="jobs-none">— ไม่ระบุ</div>';
+    else if(r.ja.length<=2)jh=`<div class="jobs-n">${r.ja.length} งาน</div><div class="jobs-tags">${r.ja.map(j=>`<span class="job-tag">${j}</span>`).join('')}</div>`;
+    else jh=`<div class="jobs-n">${r.ja.length} งาน</div><div class="jobs-tags">${r.ja.slice(0,2).map(j=>`<span class="job-tag">${j}</span>`).join('')}<button class="jobs-more" onclick="showJobs('${r.id}')">+${r.ja.length-2}</button></div>`;
+    return`<tr><td class="td-name">${r.name}</td><td><div class="td-sm">${r.type||'—'}</div><div class="td-sm">${r.province||'—'}</div></td><td><div class="jobs-cell">${jh}</div></td><td><span class="badge ${st.c}">${r.sn}. ${st.s}</span></td><td><div class="prog-wrap"><div class="prog-pct">${st.p}%</div><div class="prog-bar"><div class="prog-fill ${pf}" style="width:${st.p}%"></div></div></div></td><td class="td-date">${fd(r.sd)}</td><td class="td-date">${fd(r.dd)}</td><td class="td-days ${dc}">${dt}</td><td style="font-size:11px;color:var(--text-3);max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.note||'—'}</td><td><div style="display:flex;gap:4px"><button class="btn btn-primary btn-sm" onclick="openEdit('${r.id}')">✏️</button><button class="btn btn-danger btn-sm" onclick="askDel('${r.id}','${r.name.replace(/'/g,"\\'")}')">🗑</button></div></td></tr>`;
   }).join('');
 }
 
-function sortBy(col){
-  if(_sortCol===col)_sortDir*=-1;else{_sortCol=col;_sortDir=1;}
-  ['name','jobCount','statusNum','startDateObj','deadlineObj','daysLeft'].forEach(c=>{const th=document.getElementById('th-'+c);if(!th)return;th.classList.remove('sort-asc','sort-desc');th.querySelector('.sort-icon').textContent='⇅';});
-  const th=document.getElementById('th-'+col);if(th){th.classList.add(_sortDir===1?'sort-asc':'sort-desc');th.querySelector('.sort-icon').textContent=_sortDir===1?'↑':'↓';}
-  applyFilter();
+function sort(col){
+  if(sc===col)sd*=-1;else{sc=col;sd=1;}
+  ['name','jn','sn','sd','dd','dl'].forEach(c=>{const th=document.getElementById('th-'+c);if(!th)return;th.classList.remove('sort-asc','sort-desc');th.querySelector('.sort-icon').textContent='⇅';});
+  const th=document.getElementById('th-'+col);if(th){th.classList.add(sd===1?'sort-asc':'sort-desc');th.querySelector('.sort-icon').textContent=sd===1?'↑':'↓';}
+  filter();
 }
 
 function showJobs(id){
-  const r=_rows.find(x=>x.id===id);if(!r)return;
-  document.getElementById('jobs-modal-title').textContent=`งานประเมิน — ${r.name}`;
-  document.getElementById('jobs-modal-body').innerHTML=`<p style="font-size:12px;color:var(--text-2);margin-bottom:12px">จำนวน <strong>${r.jobsArr.length} งาน</strong></p><div style="display:flex;flex-direction:column;gap:8px">${r.jobsArr.map((j,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--purple-lt);border-radius:var(--radius);border:1px solid #d5c8f5"><span style="width:22px;height:22px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0">${i+1}</span><span style="font-size:13px">${j}</span></div>`).join('')}</div>`;
-  document.getElementById('jobs-overlay').classList.add('open');
+  const r=rows.find(x=>x.id===id);if(!r)return;
+  document.getElementById('jov-title').textContent=`งานประเมิน — ${r.name}`;
+  document.getElementById('jov-body').innerHTML=`<p style="font-size:12px;color:var(--text-2);margin-bottom:12px">จำนวน <strong>${r.ja.length} งาน</strong></p><div style="display:flex;flex-direction:column;gap:8px">${r.ja.map((j,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--purple-lt);border-radius:var(--radius);border:1px solid #d5c8f5"><span style="width:22px;height:22px;background:var(--purple);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0">${i+1}</span><span>${j}</span></div>`).join('')}</div>`;
+  document.getElementById('jov').classList.add('open');
 }
 
-// ══════════════════════════════════════════════
-// JOBS INPUT
-// ══════════════════════════════════════════════
-function syncJobsBadge(){
-  const n=[...document.querySelectorAll('#jobs-input-list .job-input-row input')].filter(i=>i.value.trim()).length;
-  document.getElementById('jobs-count-badge').textContent=n+' งาน';
+/* ── JOBS INPUT ── */
+function syncBadge(){
+  const n=[...document.querySelectorAll('#job-rows .job-row input')].filter(i=>i.value.trim()).length;
+  document.getElementById('jbadge').textContent=n+' งาน';
 }
-function addJobInput(value=''){
-  _jobInputCount++;
-  const list=document.getElementById('jobs-input-list');
-  const em=document.getElementById('jobs-empty-msg');if(em)em.remove();
-  const row=document.createElement('div');row.className='job-input-row';
-  const n=list.querySelectorAll('.job-input-row').length+1;
-  row.innerHTML=`<span class="job-num">${n}</span><input type="text" placeholder="ชื่องาน เช่น ด้านสาธารณสุข" value="${value}" oninput="syncJobsBadge()"><button class="btn-remove-job" onclick="removeJobInput(this)" type="button">✕</button>`;
+function addJob(val=''){
+  const list=document.getElementById('job-rows');
+  const em=document.getElementById('job-empty');if(em)em.remove();
+  const n=list.querySelectorAll('.job-row').length+1;
+  const row=document.createElement('div');row.className='job-row';
+  row.innerHTML=`<span class="job-n">${n}</span><input type="text" placeholder="ชื่องาน เช่น ด้านสาธารณสุข" value="${val}" oninput="syncBadge()"><button class="job-rm" onclick="rmJob(this)" type="button">✕</button>`;
   list.appendChild(row);
-  if(!value)row.querySelector('input').focus();
-  syncJobsBadge();
+  if(!val)row.querySelector('input').focus();
+  syncBadge();
 }
-function removeJobInput(btn){
-  btn.closest('.job-input-row').remove();
-  document.querySelectorAll('#jobs-input-list .job-input-row').forEach((r,i)=>r.querySelector('.job-num').textContent=i+1);
-  syncJobsBadge();
-  if(!document.querySelectorAll('#jobs-input-list .job-input-row').length){
-    const list=document.getElementById('jobs-input-list');
-    const em=document.createElement('div');em.id='jobs-empty-msg';em.style.cssText='font-size:12px;color:var(--text-3);text-align:center;padding:8px 0';em.textContent='กดปุ่ม + เพิ่มงาน เพื่อระบุรายชื่องาน';
-    list.appendChild(em);
+function rmJob(btn){
+  btn.closest('.job-row').remove();
+  document.querySelectorAll('#job-rows .job-row').forEach((r,i)=>r.querySelector('.job-n').textContent=i+1);
+  syncBadge();
+  if(!document.querySelectorAll('#job-rows .job-row').length){
+    const em=document.createElement('div');em.id='job-empty';em.style.cssText='font-size:12px;color:var(--text-3);text-align:center;padding:8px 0';em.textContent='กดปุ่ม + เพิ่มงาน เพื่อระบุรายชื่องาน';
+    document.getElementById('job-rows').appendChild(em);
   }
 }
-function getJobsFromForm(){return[...document.querySelectorAll('#jobs-input-list .job-input-row input')].map(i=>i.value.trim()).filter(Boolean);}
-function setJobsToForm(arr){
-  _jobInputCount=0;
-  const list=document.getElementById('jobs-input-list');
-  list.innerHTML='';
-  const em=document.createElement('div');em.id='jobs-empty-msg';em.style.cssText='font-size:12px;color:var(--text-3);text-align:center;padding:8px 0';em.textContent='กดปุ่ม + เพิ่มงาน เพื่อระบุรายชื่องาน';
-  list.appendChild(em);
-  arr.forEach(v=>addJobInput(v));
-  syncJobsBadge();
+function getJobs(){return[...document.querySelectorAll('#job-rows .job-row input')].map(i=>i.value.trim()).filter(Boolean);}
+function setJobs(arr){
+  document.getElementById('job-rows').innerHTML='';
+  const em=document.createElement('div');em.id='job-empty';em.style.cssText='font-size:12px;color:var(--text-3);text-align:center;padding:8px 0';em.textContent='กดปุ่ม + เพิ่มงาน เพื่อระบุรายชื่องาน';
+  document.getElementById('job-rows').appendChild(em);
+  arr.forEach(v=>addJob(v));
+  syncBadge();
 }
 
-// ══════════════════════════════════════════════
-// MODAL
-// ══════════════════════════════════════════════
+/* ── MODAL ── */
 function openAdd(){
-  _editId=null;
+  eid=null;
   document.getElementById('modal-title').textContent='เพิ่ม อปท. ใหม่';
   document.getElementById('f-name').value='';document.getElementById('f-type').value='อบต.';
   document.getElementById('f-province').value='';document.getElementById('f-status').value='0';
   document.getElementById('f-start').value='';document.getElementById('f-deadline').value='';
-  document.getElementById('f-note').value='';setJobsToForm([]);
-  document.getElementById('edit-overlay').classList.add('open');
+  document.getElementById('f-note').value='';setJobs([]);
+  document.getElementById('eov').classList.add('open');
 }
 function openEdit(id){
-  const r=_rows.find(x=>x.id===id);if(!r)return;
-  _editId=id;
+  const r=rows.find(x=>x.id===id);if(!r)return;
+  eid=id;
   document.getElementById('modal-title').textContent='แก้ไข: '+r.name;
   document.getElementById('f-name').value=r.name||'';document.getElementById('f-type').value=r.type||'อบต.';
-  document.getElementById('f-province').value=r.province||'';document.getElementById('f-status').value=String(r.statusNum||0);
+  document.getElementById('f-province').value=r.province||'';document.getElementById('f-status').value=String(r.sn||0);
   document.getElementById('f-start').value=r.startDate||'';document.getElementById('f-deadline').value=r.deadline||'';
-  document.getElementById('f-note').value=r.note||'';setJobsToForm(r.jobsArr||[]);
-  document.getElementById('edit-overlay').classList.add('open');
+  document.getElementById('f-note').value=r.note||'';setJobs(r.ja||[]);
+  document.getElementById('eov').classList.add('open');
 }
-function closeModal(){document.getElementById('edit-overlay').classList.remove('open');}
-function closeModalOnBg(e){if(e.target===document.getElementById('edit-overlay'))closeModal();}
+function closeModal(){document.getElementById('eov').classList.remove('open');}
+function closeModalBg(e){if(e.target===document.getElementById('eov'))closeModal();}
 
 async function saveRow(){
-  const name=document.getElementById('f-name').value.trim();if(!name){alert('กรุณากรอกชื่อ อปท.');return;}
-  const jobsArr=getJobsFromForm();
-  const payload={id:_editId||String(Date.now()),name,type:document.getElementById('f-type').value,province:document.getElementById('f-province').value.trim(),status:document.getElementById('f-status').value,startDate:document.getElementById('f-start').value,deadline:document.getElementById('f-deadline').value,jobs:jobsArr.join(','),note:document.getElementById('f-note').value.trim()};
-  if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){
-    const e={...payload,statusNum:parseInt(payload.status)||0,startDateObj:parseDate(payload.startDate),deadlineObj:parseDate(payload.deadline),jobsArr};
-    if(_editId){const idx=_rows.findIndex(r=>r.id===_editId);if(idx>=0)_rows[idx]=e;}else _rows.push(e);
-    closeModal();renderAll();return;
-  }
+  const name=document.getElementById('f-name').value.trim();
+  if(!name){alert('กรุณากรอกชื่อ อปท.');return;}
+  const payload={
+    id: eid||String(Date.now()), name,
+    type: document.getElementById('f-type').value,
+    province: document.getElementById('f-province').value.trim(),
+    status: document.getElementById('f-status').value,
+    startDate: document.getElementById('f-start').value,
+    deadline: document.getElementById('f-deadline').value,
+    jobs: getJobs().join(','),
+    note: document.getElementById('f-note').value.trim()
+  };
   try{
-    const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:_editId?'update':'add',data:payload})});
-    const json=await res.json();if(!json.success)throw new Error(json.error||'บันทึกไม่สำเร็จ');
+    const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:eid?'update':'add',data:payload})});
+    const json=await res.json();
+    if(!json.success)throw new Error(json.error||'บันทึกไม่สำเร็จ');
     closeModal();loadData();
   }catch(e){alert('เกิดข้อผิดพลาด: '+e.message);}
 }
 
-// ══════════════════════════════════════════════
-// DELETE
-// ══════════════════════════════════════════════
-function askDelete(id,name){_deleteId=id;document.getElementById('confirm-msg').textContent=`ลบ "${name}" ออกจากระบบ?`;document.getElementById('confirm-overlay').classList.add('open');}
-function closeConfirm(){document.getElementById('confirm-overlay').classList.remove('open');_deleteId=null;}
-async function confirmDelete(){
-  if(!_deleteId)return;
-  if(API==='https://script.google.com/macros/s/AKfycbxLUSbttRDjdQJaeI5CKnKLRIR5lO8Yl9tbgqhJTPH94hE7wmw5CDYSFfjYJm_yTeI/exec'){_rows=_rows.filter(r=>r.id!==_deleteId);closeConfirm();renderAll();return;}
+/* ── DELETE ── */
+function askDel(id,name){did=id;document.getElementById('cmsg').textContent=`ลบ "${name}" ออกจากระบบ?`;document.getElementById('cov').classList.add('open');}
+function closeCov(){document.getElementById('cov').classList.remove('open');did=null;}
+async function confirmDel(){
+  if(!did)return;
   try{
-    const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',id:_deleteId})});
-    const json=await res.json();if(!json.success)throw new Error(json.error);
-    closeConfirm();loadData();
-  }catch(e){alert('เกิดข้อผิดพลาด: '+e.message);closeConfirm();}
+    const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',id:did})});
+    const json=await res.json();
+    if(!json.success)throw new Error(json.error);
+    closeCov();loadData();
+  }catch(e){alert('เกิดข้อผิดพลาด: '+e.message);closeCov();}
 }
 
-// ══════════════════════════════════════════════
-// INIT
-// ══════════════════════════════════════════════
+/* ── INIT ── */
 checkSession();
 </script>
 </body>
