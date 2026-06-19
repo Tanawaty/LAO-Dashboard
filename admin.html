@@ -294,6 +294,17 @@ const TODAY=new Date(); TODAY.setHours(0,0,0,0);
 const fd=d=>(!d||isNaN(d))?'—':d.toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'2-digit'});
 const pd=s=>{if(!s||!String(s).trim())return null;const d=new Date(String(s).trim());return isNaN(d)?null:d;};
 const dd=(a,b)=>Math.round((b-a)/86400000);
+// แปลงค่าวันที่ดิบจาก Sheet (อาจเป็น ISO string จาก Date object) ให้เป็น yyyy-mm-dd สำหรับใส่ใน <input type="date">
+const toInputDate=s=>{
+  if(!s||!String(s).trim())return '';
+  const str=String(s).trim();
+  const m=str.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if(m)return m[1]+'-'+m[2]+'-'+m[3];
+  const d=new Date(str);
+  if(isNaN(d))return '';
+  const yy=d.getFullYear(),mm=String(d.getMonth()+1).padStart(2,'0'),dd2=String(d.getDate()).padStart(2,'0');
+  return yy+'-'+mm+'-'+dd2;
+};
 
 let rows=[],eid=null,did=null,sc=null,sd=1;
 
@@ -525,7 +536,7 @@ function openEdit(id){
   document.getElementById('modal-title').textContent='แก้ไข: '+r.name;
   document.getElementById('f-name').value=r.name||'';document.getElementById('f-type').value=r.type||'อบต.';
   document.getElementById('f-province').value=r.province||'';document.getElementById('f-status').value=String(r.sn||0);
-  document.getElementById('f-start').value=r.startDate||'';document.getElementById('f-deadline').value=r.deadline||'';
+  document.getElementById('f-start').value=toInputDate(r.startDate);document.getElementById('f-deadline').value=toInputDate(r.deadline);
   document.getElementById('f-note').value=r.note||'';setJobs(r.ja||[]);
   document.getElementById('eov').classList.add('open');
 }
